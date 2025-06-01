@@ -61,14 +61,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <div class="flex h-screen bg-gray-100">
         <!-- Sidebar -->
         <x-sidebar />
-
         <!-- Main Content -->
         <div class="flex flex-col flex-1 overflow-hidden">
-
             <!-- Page Content -->
             <div class="flex-1 overflow-auto p-6 bg-gray-50">
 
@@ -81,9 +78,6 @@
                         @livewire('admin-product-table')
                     </div>
                 </div>
-
-                <!-- Users Section  -->
-
                 <!-- Users Section -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 animate-fade-in">
                     <div class="p-6">

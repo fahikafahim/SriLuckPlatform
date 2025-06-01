@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-top-navigation/>
+    <x-top-navigation />
     <!-- Hero Section -->
     <div class="relative bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto">
@@ -15,7 +15,7 @@
                         </p>
                         <div class="mt-8 sm:mt-10 sm:flex sm:justify-center lg:justify-start space-x-4">
                             <div class="rounded-md shadow-lg hover:shadow-xl transition-shadow">
-                                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-brown-800 transition-colors duration-300 md:py-4 md:text-lg md:px-10">
+                                <a href="{{ route('customer.product') }}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-brown-800 transition-colors duration-300 md:py-4 md:text-lg md:px-10">
                                     Discover Collections
                                 </a>
                             </div>
@@ -33,7 +33,6 @@
             <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="/images/heroimg.jpg" alt="Handcrafted premium footwear">
         </div>
     </div>
-
     <!-- Brand Promise -->
     <div class="bg-gray-100 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,7 +67,6 @@
             </div>
         </div>
     </div>
-
     <!-- Featured Collections -->
     <div class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,7 +78,6 @@
                     Designed for the discerning individual who values both form and function
                 </p>
             </div>
-
             <div class="grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                 <!-- Collection 1 -->
                 <div class="group relative">
@@ -88,7 +85,7 @@
                         <img src="/images/casual2.jpg" alt="Urban casual collection" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <a href="#" class="block w-full text-center bg-white text-gray-900 py-2 px-4 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                            <a href="{{ route('customer.product') }}" class="block w-full text-center bg-white text-gray-900 py-2 px-4 rounded-md hover:bg-gray-100 transition-colors duration-200">
                                 View Collection
                             </a>
                         </div>
@@ -96,23 +93,22 @@
                     <div class="mt-4 flex justify-between">
                         <div>
                             <h3 class="text-lg font-medium text-gray-900">
-                                <a href="#" class="hover:text-brown-800 transition-colors duration-200">
+                                <a href="{{ route('customer.product') }}" class="hover:text-brown-800 transition-colors duration-200">
                                     Urban Walkers
                                 </a>
                             </h3>
                             <p class="mt-1 text-sm text-gray-600">Engineered for all-day comfort</p>
                         </div>
-                        <p class="text-lg font-medium text-brown-800">From $89</p>
+                        <p class="text-lg font-medium text-brown-800">From Rs.4999.99</p>
                     </div>
                 </div>
-
                 <!-- Collection 2 -->
                 <div class="group relative">
                     <div class="w-full min-h-80 bg-gray-100 aspect-w-1 aspect-h-1 rounded-lg overflow-hidden group-hover:opacity-90 transition-opacity duration-300 lg:h-80 lg:aspect-none">
                         <img src="/images/heals.jpg" alt="Elegant heels collection" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <a href="#" class="block w-full text-center bg-white text-gray-900 py-2 px-4 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                            <a href="{{ route('customer.product') }}" class="block w-full text-center bg-white text-gray-900 py-2 px-4 rounded-md hover:bg-gray-100 transition-colors duration-200">
                                 View Collection
                             </a>
                         </div>
@@ -126,17 +122,16 @@
                             </h3>
                             <p class="mt-1 text-sm text-gray-600">Sophisticated designs for special occasions</p>
                         </div>
-                        <p class="text-lg font-medium text-brown-800">From $129</p>
+                        <p class="text-lg font-medium text-brown-800">From Rs.2999.99</p>
                     </div>
                 </div>
-
                 <!-- Collection 3 -->
                 <div class="group relative">
                     <div class="w-full min-h-80 bg-gray-100 aspect-w-1 aspect-h-1 rounded-lg overflow-hidden group-hover:opacity-90 transition-opacity duration-300 lg:h-80 lg:aspect-none">
                         <img src="/images/casual.jpg" alt="Classic loafers collection" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <a href="#" class="block w-full text-center bg-white text-gray-900 py-2 px-4 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                            <a href="{{ route('customer.product') }}" class="block w-full text-center bg-white text-gray-900 py-2 px-4 rounded-md hover:bg-gray-100 transition-colors duration-200">
                                 View Collection
                             </a>
                         </div>
@@ -144,22 +139,18 @@
                     <div class="mt-4 flex justify-between">
                         <div>
                             <h3 class="text-lg font-medium text-gray-900">
-                                <a href="#" class="hover:text-brown-800 transition-colors duration-200">
+                                <a href="{{ route('customer.product') }}" class="hover:text-brown-800 transition-colors duration-200">
                                     Timeless Classics
                                 </a>
                             </h3>
                             <p class="mt-1 text-sm text-gray-600">Enduring styles that never go out of fashion</p>
                         </div>
-                        <p class="text-lg font-medium text-brown-800">From $109</p>
+                        <p class="text-lg font-medium text-brown-800">From Rs.3999.99</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    
-
-
     <!-- Footer -->
-   <x-footer/>
+    <x-footer />
 </x-app-layout>

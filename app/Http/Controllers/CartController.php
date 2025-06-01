@@ -49,11 +49,6 @@ class CartController extends Controller
 
     protected function mergeCarts($cart1, $cart2)
     {
-        // Implement your cart merging logic
-        // Example: Combine items, sum quantities for duplicates
-        $merged = [];
-
-        // Add your merging algorithm here
         return array_merge($cart1, $cart2);
     }
 

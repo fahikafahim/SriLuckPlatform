@@ -8,16 +8,25 @@ use App\Http\Resources\OrderResource;
 
 class OrderController extends Controller
 {
-    // GET /api/orders
+    /**
+     * Get paginated list of all orders (API)
+     * @return OrderResource collection
+     */
     public function index()
     {
         $orders = Order::latest()->paginate(10);
         return OrderResource::collection($orders);
     }
 
+    /**
+     * Create a new order (API)
+     * @param Request $request Order data
+     * @return JSON response with order details or errors
+     */
     public function store(Request $request)
     {
         try {
+            // Validate order data
             $validated = $request->validate([
                 'user_id' => 'required|exists:users,id',
                 'full_name' => 'required|string|max:255',
@@ -32,6 +41,7 @@ class OrderController extends Controller
                 'cart_items' => 'required|json'
             ]);
 
+            // Decode and validate cart items JSON
             $cartItems = json_decode($validated['cart_items'], true);
             if (json_last_error() !== JSON_ERROR_NONE) {
                 return response()->json([
@@ -40,10 +50,10 @@ class OrderController extends Controller
                 ], 422);
             }
 
-            // Reassign decoded cart items to the validated data
             $validated['cart_items'] = $cartItems;
             $validated['status'] = 'pending';
 
+            // Create the order
             $order = Order::create($validated);
 
             return response()->json([
@@ -53,11 +63,13 @@ class OrderController extends Controller
             ]);
 
         } catch (\Illuminate\Validation\ValidationException $e) {
+            // Return validation errors
             return response()->json([
                 'success' => false,
                 'errors' => $e->errors()
             ], 422);
         } catch (\Exception $e) {
+            // Return general error
             return response()->json([
                 'success' => false,
                 'message' => 'Order creation failed: ' . $e->getMessage()
@@ -65,14 +77,23 @@ class OrderController extends Controller
         }
     }
 
-    // GET /api/orders/{id}
+    /**
+     * Get specific order details (API)
+     * @param int $id Order ID
+     * @return OrderResource
+     */
     public function show($id)
     {
         $order = Order::findOrFail($id);
         return new OrderResource($order);
     }
 
-    // PUT /api/orders/{id}
+    /**
+     * Update order details (API)
+     * @param Request $request Updated order data
+     * @param int $id Order ID
+     * @return OrderResource Updated order
+     */
     public function update(Request $request, $id)
     {
         $order = Order::findOrFail($id);
@@ -92,12 +113,15 @@ class OrderController extends Controller
         ]);
 
         $validated['update_date'] = now();
-
         $order->update($validated);
         return new OrderResource($order);
     }
 
-    // DELETE /api/orders/{id}
+    /**
+     * Delete an order (API)
+     * @param int $id Order ID
+     * @return JSON response with deletion confirmation
+     */
     public function destroy($id)
     {
         $order = Order::findOrFail($id);
@@ -109,7 +133,11 @@ class OrderController extends Controller
         ]);
     }
 
-    // Frontend methods
+    /**
+     * Prepare checkout by storing cart items in session (Frontend)
+     * @param Request $request Contains cart items
+     * @return Redirect to order creation page or back with error
+     */
     public function prepareCheckout(Request $request)
     {
         $cartItems = json_decode($request->cart, true);
@@ -122,10 +150,15 @@ class OrderController extends Controller
         return redirect()->route('customer.orders.create');
     }
 
+    /**
+     * Show order creation form (Frontend)
+     * @return View with cart items and calculated totals
+     */
     public function create()
     {
         $cartItems = session('checkout_cart', []);
 
+        // Calculate order totals
         $subtotal = array_reduce($cartItems, function($sum, $item) {
             return $sum + ($item['price'] * $item['quantity']);
         }, 0);
@@ -143,17 +176,26 @@ class OrderController extends Controller
         ]);
     }
 
-    // Payment methods
+    /**
+     * Show payment page for an order (Frontend)
+     * @param int $orderId Order ID
+     * @return View with order and payment details
+     */
     public function showPayment($orderId)
     {
         $order = Order::findOrFail($orderId);
-
         return view('customer.payment', [
             'order' => $order,
             'total' => $order->total_amount
         ]);
     }
 
+    /**
+     * Process payment for an order (Frontend)
+     * @param Request $request Payment details
+     * @param int $orderId Order ID
+     * @return Redirect to confirmation page
+     */
     public function processPayment(Request $request, $orderId)
     {
         $order = Order::findOrFail($orderId);
@@ -165,9 +207,7 @@ class OrderController extends Controller
             'cvv' => 'required_if:payment_method,credit_card'
         ]);
 
-        // Here you would typically integrate with a payment gateway
-        // For demo purposes, we'll just update the order status
-
+        // Update order status and payment info
         $order->update([
             'status' => 'processing',
             'payment_method' => $request->payment_method,
@@ -177,11 +217,15 @@ class OrderController extends Controller
         return redirect()->route('orders.confirmation', $order->id);
     }
 
-    // In OrderController.php
-public function confirmation(Order $order)
-{
-    return view('customer.orders.confirmation', [
-        'order' => $order
-    ]);
-}
+    /**
+     * Show order confirmation page (Frontend)
+     * @param Order $order The completed order
+     * @return View with order confirmation details
+     */
+    public function confirmation(Order $order)
+    {
+        return view('customer.orders.confirmation', [
+            'order' => $order
+        ]);
+    }
 }

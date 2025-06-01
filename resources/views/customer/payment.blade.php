@@ -87,7 +87,8 @@
                     <div class="lg:col-span-2 payment-section p-6">
                         <h2 class="text-2xl font-bold text-gray-800 mb-6">Payment Method</h2>
 
-                        <form id="paymentForm" action="{{ route('payment.store', ['order' => $order->id]) }}" method="POST">
+                        <form id="paymentForm" action="{{ route('payment.store', ['order' => $order->id]) }}"
+                            method="POST">
                             @csrf
                             <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                             <input type="hidden" name="order_id" value="{{ $order->id }}">
@@ -244,18 +245,19 @@
             </div>
         </div>
     </div>
+    <!-- Success/Error Messages -->
     @if (session('success'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4"
             role="alert">
             <span class="block sm:inline">{{ session('success') }}</span>
         </div>
     @endif
-
     @if (session('error'))
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
             <span class="block sm:inline">{{ session('error') }}</span>
         </div>
     @endif
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize with credit card selected if it exists

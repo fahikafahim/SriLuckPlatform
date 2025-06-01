@@ -3,9 +3,9 @@
     <meta name="user-id" content="{{ auth()->id() }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <x-top-navigation/>
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <x-top-navigation />
 
     <style>
         .order-form-section {
@@ -77,7 +77,7 @@
         }
     </style>
 
-     <div class="flex h-screen bg-gray-100">
+    <div class="flex h-screen bg-gray-100">
         <!-- Main Content -->
         <div class="flex flex-col flex-1 overflow-hidden">
             <!-- Page Content -->
@@ -86,21 +86,27 @@
                 <div class="max-w-6xl mx-auto mb-8">
                     <div class="flex justify-center items-center space-x-8">
                         <div class="step-indicator flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center text-white font-medium">1</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center text-white font-medium">
+                                1</div>
                             <span class="ml-2 font-medium text-gray-600">Order Details</span>
                         </div>
                         <div class="step-indicator flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium">2</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium">
+                                2</div>
                             <span class="ml-2 font-medium text-gray-600">Payment</span>
                         </div>
                         <div class="step-indicator flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium">3</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium">
+                                3</div>
                             <span class="ml-2 font-medium text-gray-600">Confirmation</span>
                         </div>
                     </div>
                 </div>
 
-               <!-- Main Form Container -->
+                <!-- Main Form Container -->
                 <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Order Form -->
                     <div class="lg:col-span-2 order-form-section p-6">
@@ -116,22 +122,25 @@
                                 </h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label for="full_name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                        <label for="full_name" class="block text-sm font-medium text-gray-700 mb-1">Full
+                                            Name</label>
                                         <input type="text" id="full_name" name="full_name"
-                                               class="form-input w-full px-4 py-2 rounded-md"
-                                               value="{{ old('full_name', auth()->user()->name ?? '') }}" required>
+                                            class="form-input w-full px-4 py-2 rounded-md"
+                                            value="{{ old('full_name', auth()->user()->name ?? '') }}" required>
                                     </div>
                                     <div>
-                                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                        <label for="email"
+                                            class="block text-sm font-medium text-gray-700 mb-1">Email</label>
                                         <input type="email" id="email" name="email"
-                                               class="form-input w-full px-4 py-2 rounded-md"
-                                               value="{{ old('email', auth()->user()->email ?? '') }}" required>
+                                            class="form-input w-full px-4 py-2 rounded-md"
+                                            value="{{ old('email', auth()->user()->email ?? '') }}" required>
                                     </div>
                                     <div>
-                                        <label for="phone_number" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                        <label for="phone_number"
+                                            class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                                         <input type="tel" id="phone_number" name="phone_number"
-                                               class="form-input w-full px-4 py-2 rounded-md"
-                                               value="{{ old('phone_number') }}" required>
+                                            class="form-input w-full px-4 py-2 rounded-md"
+                                            value="{{ old('phone_number') }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -143,27 +152,30 @@
                                 </h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="md:col-span-2">
-                                        <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                                        <textarea id="address" name="address" rows="3"
-                                                  class="form-input w-full px-4 py-2 rounded-md" required>{{ old('address') }}</textarea>
+                                        <label for="address"
+                                            class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
+                                        <textarea id="address" name="address" rows="3" class="form-input w-full px-4 py-2 rounded-md" required>{{ old('address') }}</textarea>
                                     </div>
                                     <div>
-                                        <label for="city" class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                                        <label for="city"
+                                            class="block text-sm font-medium text-gray-700 mb-1">City</label>
                                         <input type="text" id="city" name="city"
-                                               class="form-input w-full px-4 py-2 rounded-md"
-                                               value="{{ old('city') }}" required>
+                                            class="form-input w-full px-4 py-2 rounded-md" value="{{ old('city') }}"
+                                            required>
                                     </div>
                                     <div>
-                                        <label for="province" class="block text-sm font-medium text-gray-700 mb-1">State/Province</label>
+                                        <label for="province"
+                                            class="block text-sm font-medium text-gray-700 mb-1">State/Province</label>
                                         <input type="text" id="province" name="province"
-                                               class="form-input w-full px-4 py-2 rounded-md"
-                                               value="{{ old('province') }}" required>
+                                            class="form-input w-full px-4 py-2 rounded-md" value="{{ old('province') }}"
+                                            required>
                                     </div>
                                     <div>
-                                        <label for="postal_code" class="block text-sm font-medium text-gray-700 mb-1">ZIP/Postal Code</label>
+                                        <label for="postal_code"
+                                            class="block text-sm font-medium text-gray-700 mb-1">ZIP/Postal Code</label>
                                         <input type="text" id="postal_code" name="postal_code"
-                                               class="form-input w-full px-4 py-2 rounded-md"
-                                               value="{{ old('postal_code') }}" required>
+                                            class="form-input w-full px-4 py-2 rounded-md"
+                                            value="{{ old('postal_code') }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -178,12 +190,14 @@
                             <div class="flex items-start mb-6">
                                 <input type="checkbox" id="terms" name="terms" class="mt-1 mr-2" required>
                                 <label for="terms" class="text-sm text-gray-600">
-                                    I agree to the <a href="#" class="text-gray-600 hover:underline">Terms and Conditions</a>
+                                    I agree to the <a href="#" class="text-gray-600 hover:underline">Terms and
+                                        Conditions</a>
                                 </label>
                             </div>
 
                             <!-- Submit Button -->
-                            <button type="submit" class="submit-btn w-full py-3 px-6 rounded-md text-white font-medium text-lg">
+                            <button type="submit"
+                                class="submit-btn w-full py-3 px-6 rounded-md text-white font-medium text-lg">
                                 Complete Order <i class="fas fa-lock ml-2"></i>
                             </button>
                         </form>
@@ -196,23 +210,24 @@
 
                             <!-- Cart Items List -->
                             <div class="max-h-96 overflow-y-auto mb-4">
-                                @foreach($cartItems as $item)
-                                <div class="flex items-start mb-4 pb-4 border-b border-gray-200">
-                                    <div class="w-16 h-16 rounded-md overflow-hidden mr-3">
-                                        <img src="{{ $item['image_url'] ?? 'https://via.placeholder.com/300' }}"
-                                             alt="{{ $item['name'] }}" class="w-full h-full object-cover">
+                                @foreach ($cartItems as $item)
+                                    <div class="flex items-start mb-4 pb-4 border-b border-gray-200">
+                                        <div class="w-16 h-16 rounded-md overflow-hidden mr-3">
+                                            <img src="{{ $item['image_url'] ?? 'https://via.placeholder.com/300' }}"
+                                                alt="{{ $item['name'] }}" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="flex-1">
+                                            <h3 class="font-medium text-gray-800 text-sm">{{ $item['name'] }}</h3>
+                                            <p class="text-xs text-gray-600 mb-1">Qty: {{ $item['quantity'] }}</p>
+                                            <p class="text-amber-700 font-bold text-sm">
+                                                Rs.{{ number_format($item['price'], 2) }}</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="text-gray-800 font-medium text-sm">
+                                                Rs.{{ number_format($item['price'] * $item['quantity'], 2) }}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="flex-1">
-                                        <h3 class="font-medium text-gray-800 text-sm">{{ $item['name'] }}</h3>
-                                        <p class="text-xs text-gray-600 mb-1">Qty: {{ $item['quantity'] }}</p>
-                                        <p class="text-amber-700 font-bold text-sm">Rs.{{ number_format($item['price'], 2) }}</p>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="text-gray-800 font-medium text-sm">
-                                            Rs.{{ number_format($item['price'] * $item['quantity'], 2) }}
-                                        </p>
-                                    </div>
-                                </div>
                                 @endforeach
                             </div>
 
@@ -263,80 +278,80 @@
         </div>
     </div>
 
-   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Format the cart items as expected by the backend
-    const cartItems = @json($cartItems);
-    const formattedCartItems = cartItems.map(item => ({
-        product_id: item.id || item.product_id,
-        product_name: item.name,
-        price: parseFloat(item.price),
-        quantity: parseInt(item.quantity)
-    }));
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Format the cart items as expected by the backend
+            const cartItems = @json($cartItems);
+            const formattedCartItems = cartItems.map(item => ({
+                product_id: item.id || item.product_id,
+                product_name: item.name,
+                price: parseFloat(item.price),
+                quantity: parseInt(item.quantity)
+            }));
 
-    document.getElementById('cart_items').value = JSON.stringify(formattedCartItems);
+            document.getElementById('cart_items').value = JSON.stringify(formattedCartItems);
 
-    // Form submission handler
-    const form = document.getElementById('orderForm');
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+            // Form submission handler
+            const form = document.getElementById('orderForm');
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
 
-        // Validate terms checkbox
-        if (!document.getElementById('terms').checked) {
-            alert('Please agree to the terms and conditions');
-            return;
-        }
+                // Validate terms checkbox
+                if (!document.getElementById('terms').checked) {
+                    alert('Please agree to the terms and conditions');
+                    return;
+                }
 
-        // Collect all form data
-        const formData = {
-            user_id: document.getElementById('user_id').value,
-            full_name: document.getElementById('full_name').value,
-            email: document.getElementById('email').value,
-            phone_number: document.getElementById('phone_number').value,
-            address: document.getElementById('address').value,
-            city: document.getElementById('city').value,
-            province: document.getElementById('province').value,
-            postal_code: document.getElementById('postal_code').value,
-            terms: document.getElementById('terms').checked ? 'on' : '',
-            total_amount: document.getElementById('total_amount').value,
-            cart_items: document.getElementById('cart_items').value,
-            status: 'pending'
-        };
+                // Collect all form data
+                const formData = {
+                    user_id: document.getElementById('user_id').value,
+                    full_name: document.getElementById('full_name').value,
+                    email: document.getElementById('email').value,
+                    phone_number: document.getElementById('phone_number').value,
+                    address: document.getElementById('address').value,
+                    city: document.getElementById('city').value,
+                    province: document.getElementById('province').value,
+                    postal_code: document.getElementById('postal_code').value,
+                    terms: document.getElementById('terms').checked ? 'on' : '',
+                    total_amount: document.getElementById('total_amount').value,
+                    cart_items: document.getElementById('cart_items').value,
+                    status: 'pending'
+                };
 
-        // Disable submit button
-        const submitBtn = form.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Processing... <i class="fas fa-spinner fa-spin ml-2"></i>';
+                // Disable submit button
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Processing... <i class="fas fa-spinner fa-spin ml-2"></i>';
 
-        try {
-            const response = await fetch('/api/orders', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer 1|pKZLaOgs9AefkZnNRYhl7eN13UEsc0rYFLlEHx3ob782a9e7'
-                },
-                body: JSON.stringify(formData)
+                try {
+                    const response = await fetch('/api/orders', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer 1|4ovuUDoPmWdZgZjMl4E07cmNXDoCjfnChGaJER964a79454b'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // Success - redirect to payment page
+                        window.location.href = data.redirect_url;
+                    } else {
+                        // Show error message
+                        alert(data.message || 'Failed to create order');
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Complete Order <i class="fas fa-lock ml-2"></i>';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred while processing your order');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Complete Order <i class="fas fa-lock ml-2"></i>';
+                }
             });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                // Success - redirect to payment page
-                window.location.href = data.redirect_url;
-            } else {
-                // Show error message
-                alert(data.message || 'Failed to create order');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Complete Order <i class="fas fa-lock ml-2"></i>';
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('An error occurred while processing your order');
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Complete Order <i class="fas fa-lock ml-2"></i>';
-        }
-    });
-});
+        });
     </script>
 </x-app-layout>

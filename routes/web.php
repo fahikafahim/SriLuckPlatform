@@ -79,11 +79,11 @@ Route::post('/payment/{order}', [PaymentController::class, 'store'])->name('paym
 // ==============================
 // MongoDB Review Routes (Customer)
 // ==============================
-// Route::get('/customer/mongodbReviews/create/{order}', [mongodbReviewController::class, 'create'])->name('customer.mongodbReviews.create');
-// Route::post('/customer/mongodbReviews', [mongodbReviewController::class, 'store'])->name('customer.mongodbReviews.store');
-// Route::get('/customer/mongodbReviews/{review}', [mongodbReviewController::class, 'show'])->name('customer.mongodbReviews.show');
-// Route::get('/reviews/{id}', [mongodbReviewController::class, 'show'])->name('customer.mongodbReviews.show');
-// Route::delete('/reviews/{id}', [mongodbReviewController::class, 'destroy'])->name('customer.mongodbReviews.destroy');
-// Route::put('/customer/mongodbReviews/{id}', [mongodbReviewController::class, 'update'])->name('customer.mongodbReviews.update');
-// Route::get('/reviews/{id}/edit', [mongodbReviewController::class, 'edit'])->name('customer.mongodbReviews.edit');
+Route::get('/customer/mongodbReviews/create/{order}', [mongodbReviewController::class, 'create'])->name('customer.mongodbReviews.create');
+Route::post('/customer/mongodbReviews', [mongodbReviewController::class, 'store'])->name('customer.mongodbReviews.store');
+Route::get('/customer/mongodbReviews/{review}', [mongodbReviewController::class, 'show'])->name('customer.mongodbReviews.show');
+Route::get('/reviews/{id}', [mongodbReviewController::class, 'show'])->name('customer.mongodbReviews.show');
+Route::delete('/reviews/{id}', [mongodbReviewController::class, 'destroy'])->name('customer.mongodbReviews.destroy');
+Route::put('/customer/mongodbReviews/{id}', [mongodbReviewController::class, 'update'])->name('customer.mongodbReviews.update');
+Route::get('/reviews/{id}/edit', [mongodbReviewController::class, 'edit'])->name('customer.mongodbReviews.edit');
 

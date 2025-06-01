@@ -1,14 +1,18 @@
-{{-- <x-app-layout>
+<x-app-layout>
+    {{-- Main review form container --}}
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-8">
+                    {{-- Page heading --}}
                     <h1 class="text-2xl font-bold mb-6">Leave a Review for Order #{{ $order->id }}</h1>
 
+                    {{-- Review submission form --}}
                     <form action="{{ route('customer.mongodbReviews.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="order_id" value="{{ $order->id }}">
 
+                        {{-- Star rating input --}}
                         <div class="mb-6">
                             <label for="rating" class="block text-sm font-medium text-gray-700 mb-2">Rating</label>
                             <div class="flex items-center">
@@ -25,6 +29,7 @@
                             @enderror
                         </div>
 
+                        {{-- Review text input --}}
                         <div class="mb-6">
                             <label for="comment" class="block text-sm font-medium text-gray-700 mb-2">Your Review</label>
                             <textarea id="comment" name="comment" rows="4"
@@ -35,6 +40,7 @@
                             @enderror
                         </div>
 
+                        {{-- Image upload section --}}
                         <div class="mb-6">
                             <label for="images" class="block text-sm font-medium text-gray-700 mb-2">Upload Images (Optional)</label>
                             <input type="file" id="images" name="images[]" multiple
@@ -50,6 +56,7 @@
                             @enderror
                         </div>
 
+                        {{-- Form submit button --}}
                         <div class="flex justify-end">
                             <button type="submit"
                                     class="px-6 py-3 bg-indigo-600 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150">
@@ -61,4 +68,4 @@
             </div>
         </div>
     </div>
-</x-app-layout> --}}
+</x-app-layout>

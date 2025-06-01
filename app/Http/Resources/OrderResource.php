@@ -26,7 +26,7 @@ class OrderResource extends JsonResource
             'postal_code'   => $this->postal_code,
             'city'          => $this->city,
             'province'      => $this->province,
-            'cart_items'    => $this->cart_items, // include this if available
+            'cart_items'    => $this->cart_items, 
             'create_date'   => $this->create_date,
             'update_date'   => $this->update_date,
             'created_at'    => $this->created_at ? $this->created_at->toDateTimeString() : null,

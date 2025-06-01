@@ -1,15 +1,17 @@
-{{-- <x-app-layout>
+<x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-8">
+                    <!-- Page Heading -->
                     <h1 class="text-2xl font-bold mb-6">Edit Your Review for Order #{{ $review->order_id }}</h1>
 
+                    <!-- Review Update Form -->
                     <form method="POST" action="{{ route('customer.mongodbReviews.update', $review->_id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
-                        <!-- Rating -->
+                        <!-- Star Rating Selection -->
                         <div class="mb-6">
                             <label for="rating" class="block text-gray-700 font-medium mb-2">Rating</label>
                             <div class="flex items-center">
@@ -18,6 +20,7 @@
                                         <span class="{{ $i <= old('rating', $review->rating) ? 'text-yellow-400' : 'text-gray-300' }}">★</span>
                                     </button>
                                 @endfor
+                                <!-- Hidden input to store rating value -->
                                 <input type="hidden" name="rating" id="rating" value="{{ old('rating', $review->rating) }}">
                             </div>
                             @error('rating')
@@ -25,7 +28,7 @@
                             @enderror
                         </div>
 
-                        <!-- Comment -->
+                        <!-- Review Comment Textarea -->
                         <div class="mb-6">
                             <label for="comment" class="block text-gray-700 font-medium mb-2">Review</label>
                             <textarea id="comment" name="comment" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">{{ old('comment', $review->comment) }}</textarea>
@@ -34,14 +37,17 @@
                             @enderror
                         </div>
 
-                        <!-- Current Images -->
+                        <!-- Display Current Uploaded Images -->
                         @if(!empty($review->images))
                             <div class="mb-6">
                                 <label class="block text-gray-700 font-medium mb-2">Current Images</label>
                                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                                     @foreach($review->images as $image)
                                         <div class="relative group">
+                                            <!-- Image Preview -->
                                             <img src="{{ Storage::url($image) }}" alt="Review image" class="w-full h-32 object-cover rounded-md">
+
+                                            <!-- Delete Overlay Button -->
                                             <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <button type="button" class="text-white bg-red-500 hover:bg-red-600 rounded-full p-2 delete-image-btn" data-image="{{ $image }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -52,11 +58,12 @@
                                         </div>
                                     @endforeach
                                 </div>
+                                <!-- Hidden input to store deleted image names -->
                                 <input type="hidden" name="deleted_images" id="deleted_images" value="">
                             </div>
                         @endif
 
-                        <!-- New Images -->
+                        <!-- File Upload for Adding New Images -->
                         <div class="mb-6">
                             <label for="images" class="block text-gray-700 font-medium mb-2">Add More Images (Optional)</label>
                             <input type="file" id="images" name="images[]" multiple accept="image/*" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -66,11 +73,13 @@
                             @enderror
                         </div>
 
-                        <!-- Buttons -->
+                        <!-- Form Action Buttons -->
                         <div class="flex items-center justify-end space-x-4 pt-6 border-t">
+                            <!-- Cancel Button -->
                             <a href="{{ route('customer.mongodbReviews.show', $review->_id) }}" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 transition-colors">
                                 Cancel
                             </a>
+                            <!-- Submit Button -->
                             <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
                                 Update Review
                             </button>
@@ -83,13 +92,13 @@
 
     @push('scripts')
         <script>
-            // Rating stars interaction
+            // Handle star rating click and update hidden input + star visuals
             document.querySelectorAll('.rating-star').forEach(star => {
                 star.addEventListener('click', () => {
                     const value = parseInt(star.getAttribute('data-value'));
                     document.getElementById('rating').value = value;
 
-                    // Update star display
+                    // Update star colors based on selection
                     document.querySelectorAll('.rating-star').forEach((s, index) => {
                         const starValue = parseInt(s.getAttribute('data-value'));
                         const starSpan = s.querySelector('span');
@@ -98,23 +107,23 @@
                 });
             });
 
-            // Image deletion
+            // Handle image deletion and update hidden input
             document.querySelectorAll('.delete-image-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const imagePath = this.getAttribute('data-image');
                     const deletedImagesInput = document.getElementById('deleted_images');
                     let deletedImages = deletedImagesInput.value ? deletedImagesInput.value.split(',') : [];
 
-                    // Add to deleted images list
+                    // Prevent duplicates and update input value
                     if (!deletedImages.includes(imagePath)) {
                         deletedImages.push(imagePath);
                         deletedImagesInput.value = deletedImages.join(',');
 
-                        // Hide the image visually
+                        // Visually hide the image block
                         this.closest('.relative').style.display = 'none';
                     }
                 });
             });
         </script>
     @endpush
-</x-app-layout> --}}
+</x-app-layout>
