@@ -120,7 +120,7 @@
                                 <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                                     <i class="fas fa-user-circle mr-2 text-gray-600"></i> Customer Details
                                 </h3>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-4">
                                     <div>
                                         <label for="full_name" class="block text-sm font-medium text-gray-700 mb-1">Full
                                             Name</label>
@@ -150,8 +150,8 @@
                                 <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                                     <i class="fas fa-truck mr-2 text-gray-600"></i> Shipping Address
                                 </h3>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="md:col-span-2">
+                                <div class="space-y-4">
+                                    <div>
                                         <label for="address"
                                             class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
                                         <textarea id="address" name="address" rows="3" class="form-input w-full px-4 py-2 rounded-md" required>{{ old('address') }}</textarea>
@@ -179,6 +179,7 @@
                                     </div>
                                 </div>
                             </div>
+
 
                             <!-- Hidden Fields -->
                             <input type="hidden" name="user_id" id="user_id" value="{{ auth()->id() }}">
@@ -329,7 +330,7 @@
                         headers: {
                             'Content-Type': 'application/json',
                             'Accept': 'application/json',
-                            'Authorization': 'Bearer 1|4ovuUDoPmWdZgZjMl4E07cmNXDoCjfnChGaJER964a79454b'
+                            'Authorization': 'Bearer 2|z4Yyuo5aI95QvgPNQJ4fcrPhPrTLvgl6nWyjnCy09e40676f'
                         },
                         body: JSON.stringify(formData)
                     });

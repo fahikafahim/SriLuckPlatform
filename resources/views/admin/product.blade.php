@@ -265,7 +265,7 @@
 <script>
     // API URL and token for product management
     const API_URL = '/api/products'; // API endpoint for product CRUD operations
-    const token = "2|mYfExj17m9OAbetA4aJgDMNEWLBQ3OOur84RS3vr2c2c0fd6"; // Authentication token for API access
+    const token = "1|K0uiznivagIKIMUZ7qVsbUquo89VoTM7z4yydXpS84ae1367"; // Authentication token for API access
 
     /* This script handel cookie but it's not working properly
      * It is commented out because it is not needed for the current implementation.

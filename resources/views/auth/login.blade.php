@@ -38,18 +38,7 @@
                                type="password" name="password" required autocomplete="current-password" />
                     </div>
 
-                    <div class="flex items-center justify-between">
-                        <label for="remember_me" class="flex items-center">
-                            <input id="remember_me" type="checkbox" name="remember" class="rounded border-gray-300 text-[#d4a76a] focus:ring-[#d4a76a] h-4 w-4" />
-                            <span class="ms-2 text-sm text-gray-600">Remember me</span>
-                        </label>
-
-                        @if (Route::has('password.request'))
-                            <a href="{{ route('password.request') }}" class="text-sm text-gray-600 hover:text-[#d4a76a] transition-colors">
-                                Forgot password?
-                            </a>
-                        @endif
-                    </div>
+        
 
                     <div class="flex flex-col space-y-4">
                         <button type="submit" class="w-full btn-gold px-4 py-3 font-medium rounded-sm transition-all duration-300">
